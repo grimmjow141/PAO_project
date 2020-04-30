@@ -21,8 +21,36 @@ public class Order {
 		key_code = "O#" + Utility.fill_zeros(id);
 	}
 	
-	void print_menu_items () {
+	public void print_menu_items () {
 		for (String i: items)
 			System.out.println(i);
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getDate() {
+		return Utility.date_format.format(date);
+	}
+
+	public int getWaiting_time() {
+		return waiting_time;
+	}
+
+	public ArrayList<String> getItems() {
+		return items;
+	}
+
+
+	public String getKey_code() {
+		return key_code;
+	}
+
+
+	public static int getNr_of_orders() {
+		return nr_of_orders;
+	}
+	
+	
 }

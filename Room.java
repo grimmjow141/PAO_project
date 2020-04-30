@@ -4,18 +4,21 @@ public class Room {
 	private int id;
 	private int capacity;
 	private boolean seats[][];
-	private int width;
-	private int lenght;
+	private int rows;
+	private int columns;
 	private static int nr_of_rooms = 0;
 	
-	Room(int width, int lenght) {
-		id = ++ nr_of_rooms;
-		this.capacity = width * lenght;
-		this.width = width;
-		this.lenght = lenght;
-		seats  = new boolean[width][lenght];
+	Room(int rows, int columns) {
+		id = nr_of_rooms ++;
+		this.capacity = rows * columns;
+		this.rows = rows;
+		this.columns = columns;
+		seats  = new boolean[rows][columns];
 	}
 	
+	public boolean isOccupied(int row, int column) {
+		return seats[row][column];
+	}
 	public int getId () {
 		return id;
 	}
@@ -24,11 +27,17 @@ public class Room {
 		return seats;
 	}
 
-	public int getWidth() {
-		return width;
+	public int getRows() {
+		return rows;
 	}
 
-	public int getLenght() {
-		return lenght;
+	public int getColumns() {
+		return columns;
 	}
+
+	@Override
+	public String toString() {
+		return "Room: [" + id + "]";
+	}
+	
 }
